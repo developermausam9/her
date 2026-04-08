@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <meta name="description" content="A special birthday surprise with love.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Stage 1: Countdown -->
+        <section id="countdown-section" class="active">
+            <div class="glass-container">
+                <h2 class="title">The Wait is Almost Over</h2>
+                <div id="timer">
+                    <div class="time-block">
+                        <span id="hours">00</span>
+                        <label>Hours</label>
+                    </div>
+                    <div class="time-block">
+                        <span id="minutes">00</span>
+                        <label>Minutes</label>
+                    </div>
+                    <div class="time-block">
+                        <span id="seconds">00</span>
+                        <label>Seconds</label>
+                    </div>
+                </div>
+                <p class="subtitle italic">Something special is coming for you...</p>
+                <button id="test-trigger" style="margin-top: 2rem; background: transparent; border: 1px solid var(--glass-border); color: var(--text-dim); padding: 0.5rem 1rem; border-radius: 1rem; cursor: pointer; font-size: 0.8rem;">Preview Transition (Click for Test)</button>
+            </div>
+            <div class="bg-gradient"></div>
+        </section>
+
+        <!-- Stage 2: Flower Celebration -->
+        <section id="flower-section">
+            <div class="flower-container">
+                <div class="night">
+                    <div class="flowers">
+                      <div class="flower flower--1">
+                        <div class="flower__leafs flower__leafs--1">
+                          <div class="flower__leaf flower__leaf--1"></div>
+                          <div class="flower__leaf flower__leaf--2"></div>
+                          <div class="flower__leaf flower__leaf--3"></div>
+                          <div class="flower__leaf flower__leaf--4"></div>
+                          <div class="flower__white-circle"></div>
+                          <div class="flower__light flower__light--1"></div>
+                          <div class="flower__light flower__light--2"></div>
+                          <div class="flower__light flower__light--3"></div>
+                          <div class="flower__light flower__light--4"></div>
+                          <div class="flower__light flower__light--5"></div>
+                          <div class="flower__light flower__light--6"></div>
+                          <div class="flower__light flower__light--7"></div>
+                          <div class="flower__light flower__light--8"></div>
+                        </div>
+                        <div class="flower__line">
+                          <div class="flower__line__leaf flower__line__leaf--1"></div>
+                          <div class="flower__line__leaf flower__line__leaf--2"></div>
+                          <div class="flower__line__leaf flower__line__leaf--3"></div>
+                          <div class="flower__line__leaf flower__line__leaf--4"></div>
+                          <div class="flower__line__leaf flower__line__leaf--5"></div>
+                          <div class="flower__line__leaf flower__line__leaf--6"></div>
+                        </div>
+                      </div>
+              
+                      <div class="flower flower--2">
+                        <div class="flower__leafs flower__leafs--2">
+                          <div class="flower__leaf flower__leaf--1"></div>
+                          <div class="flower__leaf flower__leaf--2"></div>
+                          <div class="flower__leaf flower__leaf--3"></div>
+                          <div class="flower__leaf flower__leaf--4"></div>
+                          <div class="flower__white-circle"></div>
+                          <div class="flower__light flower__light--1"></div>
+                          <div class="flower__light flower__light--2"></div>
+                          <div class="flower__light flower__light--3"></div>
+                          <div class="flower__light flower__light--4"></div>
+                          <div class="flower__light flower__light--5"></div>
+                          <div class="flower__light flower__light--6"></div>
+                          <div class="flower__light flower__light--7"></div>
+                          <div class="flower__light flower__light--8"></div>
+                        </div>
+                        <div class="flower__line">
+                          <div class="flower__line__leaf flower__line__leaf--1"></div>
+                          <div class="flower__line__leaf flower__line__leaf--2"></div>
+                          <div class="flower__line__leaf flower__line__leaf--3"></div>
+                          <div class="flower__line__leaf flower__line__leaf--4"></div>
+                        </div>
+                      </div>
+              
+                      <div class="flower flower--3">
+                        <div class="flower__leafs flower__leafs--3">
+                          <div class="flower__leaf flower__leaf--1"></div>
+                          <div class="flower__leaf flower__leaf--2"></div>
+                          <div class="flower__leaf flower__leaf--3"></div>
+                          <div class="flower__leaf flower__leaf--4"></div>
+                          <div class="flower__white-circle"></div>
+                          <div class="flower__light flower__light--1"></div>
+                          <div class="flower__light flower__light--2"></div>
+                          <div class="flower__light flower__light--3"></div>
+                          <div class="flower__light flower__light--4"></div>
+                          <div class="flower__light flower__light--5"></div>
+                          <div class="flower__light flower__light--6"></div>
+                          <div class="flower__light flower__light--7"></div>
+                          <div class="flower__light flower__light--8"></div>
+                        </div>
+                        <div class="flower__line">
+                          <div class="flower__line__leaf flower__line__leaf--1"></div>
+                          <div class="flower__line__leaf flower__line__leaf--2"></div>
+                          <div class="flower__line__leaf flower__line__leaf--3"></div>
+                          <div class="flower__line__leaf flower__line__leaf--4"></div>
+                        </div>
+                      </div>
+              
+                      <div class="grow-ans">
+                        <div class="grass grass--1">
+                          <div class="grass__leaf grass__leaf--1"></div>
+                          <div class="grass__leaf grass__leaf--2"></div>
+                          <div class="grass__leaf grass__leaf--3"></div>
+                          <div class="grass__leaf grass__leaf--4"></div>
+                          <div class="grass__leaf grass__leaf--5"></div>
+                          <div class="grass__leaf grass__leaf--6"></div>
+                          <div class="grass__leaf grass__leaf--7"></div>
+                          <div class="grass__leaf grass__leaf--8"></div>
+                          <div class="grass__overlay"></div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stage 2.5: Special Wish Letter -->
+        <section id="letter-section">
+            <div class="letter-wrapper">
+                <div class="letter-paper">
+                    <div class="letter-content">
+                        <h2 class="letter-title">Happy Birthday!</h2>
+                        <div class="letter-body">
+                            <p>To the most special person in the world,</p>
+                            <p>As these flowers bloom, I wanted to take a moment to celebrate you. You bring so much light and joy into every day, and I am so grateful to have you in my life.</p>
+                            <p>Today is all about you – your dreams, your smile, and the amazing woman you've become. May this year be as beautiful and vibrant as the flowers before you.</p>
+                            <p>Here's to many more wonderful memories together.</p>
+                            <div class="letter-footer">
+                                <p class="signature">With love, ❤️</p>
+                                <button id="proceed-btn" class="letter-btn">Open Our Journey ✨</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stage 3: Timeline -->
+        <section id="timeline-section">
+            <h2 class="timeline-title">A Journey Through Time</h2>
+            <div class="timeline-container">
+                <!-- Timeline items will be injected by JS -->
+            </div>
+            <div id="footer-message">
+                <p>Wishing you the happiest of birthdays, today and every day. ❤️</p>
+            </div>
+
+            <!-- Final Gift Letter -->
+            <div id="gift-letter-container" class="timeline-item">
+                <div class="letter-paper gift-paper">
+                    <div class="letter-content">
+                        <h2 class="letter-title">One Last Thing... 🎁</h2>
+                        <div class="letter-body">
+                            <p>You've seen the flowers, the letter, and the journey of your wonderful life.</p>
+                            <p>But there's something else... something small and special. Before I go, I have to ask:</p>
+                            <p style="font-weight: 800; font-size: 1.3rem; text-align: center; color: #c91834; margin: 2rem 0;">Do you accept a small gift later tonight? ✨</p>
+                            
+                            <div class="gift-actions">
+                                <button id="no-btn" class="gift-btn secondary">No</button>
+                                <button id="yes-btn" class="gift-btn primary">Yes, I'd Love To! ❤️</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
