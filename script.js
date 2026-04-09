@@ -2,7 +2,7 @@
 // Paste your Webhook URL (Discord, Slack, or Formspree) below to get notified!
 const TRACKING_URL = "https://formspree.io/f/xvzvynqg";
 
-const TARGET_DATE = new Date('April 9, 2026 13:40:00').getTime();
+const TARGET_DATE = new Date('April 10, 2026 00:00:00').getTime();
 
 const timelineData = [
     {
@@ -30,7 +30,7 @@ const timelineData = [
         image: "joint.png"
     },
     {
-        date: "Today - April 10",
+        date: "Today - Chaitra 27",
         title: "Happy Birthday!",
         description: "Another beautiful year older, wiser, and more wonderful. Here's to all your dreams coming true ❤️. Aru bich ko timeline thyena so i skipped😅.",
         image: "hbd.jpeg"
