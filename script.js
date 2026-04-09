@@ -2,7 +2,7 @@
 // Paste your Webhook URL (Discord, Slack, or Formspree) below to get notified!
 const TRACKING_URL = "https://formspree.io/f/xvzvynqg";
 
-const TARGET_DATE = new Date('April 9, 2026 00:00:00').getTime();
+const TARGET_DATE = new Date('April 10, 2026 00:00:00').getTime();
 
 const timelineData = [
     {
