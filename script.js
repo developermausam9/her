@@ -112,12 +112,22 @@ function init() {
 
     const readyWishBtn = document.getElementById('ready-wish-btn');
     if (readyWishBtn) {
-        readyWishBtn.addEventListener('click', () => {
+        readyWishBtn.addEventListener('click', async () => {
+            // First things first: Create AudioContext synchronously
+            if (!audioContext) {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            if (audioContext.state === 'suspended') {
+                audioContext.resume();
+            }
+
             const intro = document.getElementById('wish-intro');
             const micArea = document.getElementById('mic-area');
             if (intro) intro.style.display = 'none';
             if (micArea) micArea.style.display = 'block';
-            initMicrophone();
+            
+            // Now request mic immediately
+            await initMicrophone();
         });
     }
 
@@ -238,6 +248,12 @@ async function initMicrophone() {
     const micBar = document.querySelector('.mic-bar');
     const blowBtn = document.getElementById('blow-btn');
 
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        if (statusEl) statusEl.innerText = "Browser doesn't support mic access (requires HTTPS).";
+        if (blowBtn) blowBtn.style.display = 'block';
+        return;
+    }
+
     try {
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
         
@@ -285,9 +301,16 @@ async function initMicrophone() {
         if (statusEl) statusEl.innerText = "Listening for your wish...";
     } catch (err) {
         console.error("Microphone Error:", err);
-        if (statusEl) statusEl.innerText = "Mic access denied. Click the button below!";
-        const blowBtn = document.getElementById('blow-btn');
+        let errorMsg = "Mic access blocked. 🚫";
+        if (err.name === 'NotAllowedError' || err.name === 'PermissionDeniedError') {
+            errorMsg = "Mic permission was denied. Please reset permissions in your browser settings!";
+        } else if (!window.isSecureContext) {
+            errorMsg = "Mic requires a secure (HTTPS) connection to work on mobile.";
+        }
+        
+        if (statusEl) statusEl.innerText = errorMsg;
         if (blowBtn) blowBtn.style.display = 'block';
+        notifyUser("Microphone failed on mobile: " + err.name);
     }
 }
 
