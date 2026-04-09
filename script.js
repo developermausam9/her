@@ -2,7 +2,7 @@
 // Paste your Webhook URL (Discord, Slack, or Formspree) below to get notified!
 const TRACKING_URL = "https://formspree.io/f/xvzvynqg";
 
-const TARGET_DATE = new Date('April 10, 2026 00:00:00').getTime();
+const TARGET_DATE = new Date('April 9, 2026 13:40:00').getTime();
 
 const timelineData = [
     {
@@ -85,7 +85,7 @@ function init() {
     }
 
     mysterySection = document.getElementById('mystery-section');
-    
+
     const mysteryTriggerBtn = document.getElementById('mystery-trigger-btn');
     if (mysteryTriggerBtn) {
         mysteryTriggerBtn.addEventListener('click', showMystery);
@@ -125,15 +125,10 @@ function init() {
             const micArea = document.getElementById('mic-area');
             if (intro) intro.style.display = 'none';
             if (micArea) micArea.style.display = 'block';
-            
+
             // Now request mic immediately
             await initMicrophone();
         });
-    }
-
-    const testTrigger = document.getElementById('test-trigger');
-    if (testTrigger) {
-        testTrigger.onclick = startCelebration;
     }
 
     // Initial Tracking: She opened the link!
@@ -256,7 +251,7 @@ async function initMicrophone() {
 
     try {
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-        
+
         if (!audioContext) {
             audioContext = new (window.AudioContext || window.webkitAudioContext)();
         }
@@ -307,7 +302,7 @@ async function initMicrophone() {
         } else if (!window.isSecureContext) {
             errorMsg = "Mic requires a secure (HTTPS) connection to work on mobile.";
         }
-        
+
         if (statusEl) statusEl.innerText = errorMsg;
         if (blowBtn) blowBtn.style.display = 'block';
         notifyUser("Microphone failed on mobile: " + err.name);
@@ -440,12 +435,12 @@ function openMysteryLetter() {
 function revealFinalSurprise() {
     const challenge = document.getElementById('blur-challenge-container');
     const final = document.getElementById('final-surprise-container');
-    
+
     setTimeout(() => {
         if (challenge) challenge.style.display = 'none';
         if (final) final.style.display = 'block';
     }, 800);
-    
+
     notifyUser("Comparison Question Answered! 🤭");
 }
 
@@ -459,7 +454,7 @@ function moveFinalNoButton() {
 function confirmFinalSurprise() {
     const actions = document.querySelector('#final-surprise-container .gift-actions');
     const successMsg = document.getElementById('final-success-msg');
-    
+
     if (actions) actions.style.display = 'none';
     if (successMsg) successMsg.style.display = 'block';
 
