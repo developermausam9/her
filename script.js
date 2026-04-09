@@ -110,6 +110,17 @@ function init() {
     }
     if (finalYesBtn) finalYesBtn.addEventListener('click', confirmFinalSurprise);
 
+    const readyWishBtn = document.getElementById('ready-wish-btn');
+    if (readyWishBtn) {
+        readyWishBtn.addEventListener('click', () => {
+            const intro = document.getElementById('wish-intro');
+            const micArea = document.getElementById('mic-area');
+            if (intro) intro.style.display = 'none';
+            if (micArea) micArea.style.display = 'block';
+            initMicrophone();
+        });
+    }
+
     const testTrigger = document.getElementById('test-trigger');
     if (testTrigger) {
         testTrigger.onclick = startCelebration;
@@ -214,7 +225,6 @@ function showCake() {
             setTimeout(() => {
                 cakeSection.classList.add('active');
                 document.querySelector('.cake-instructions').classList.add('visible');
-                initMicrophone(); // Start listening when cake appears
             }, 100);
         }
     }, 1500);
@@ -226,10 +236,18 @@ let isExtinguished = false;
 async function initMicrophone() {
     const statusEl = document.getElementById('mic-status');
     const micBar = document.querySelector('.mic-bar');
+    const blowBtn = document.getElementById('blow-btn');
 
     try {
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        
+        if (!audioContext) {
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioContext.state === 'suspended') {
+            await audioContext.resume();
+        }
+
         analyser = audioContext.createAnalyser();
         microphone = audioContext.createMediaStreamSource(stream);
         javascriptNode = audioContext.createScriptProcessor(2048, 1, 1);

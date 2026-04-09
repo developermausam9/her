@@ -161,13 +161,18 @@
                     </div>
                 </div>
                 <div class="cake-instructions">
-                    <p class="wish-text">Close your eyes, make a wish...</p>
-                    <p class="mic-prompt">Grant microphone access, make a wish and <strong>Blow!🤭</strong></p>
-                    <div class="mic-feedback">
-                        <div class="mic-bar"></div>
+                    <div id="wish-intro">
+                        <p class="wish-text">Close your eyes, make a wish...</p>
+                        <button id="ready-wish-btn" class="letter-btn">I'm ready ✨</button>
+                    </div>
+                    <div id="mic-area" style="display: none;">
+                        <p class="mic-prompt">Grant microphone permission and <strong>Blow!🤭</strong></p>
+                        <div class="mic-feedback">
+                            <div class="mic-bar"></div>
+                        </div>
+                        <p id="mic-status" class="status-text"></p>
                     </div>
                     <button id="blow-btn" class="letter-btn" style="display: none;">Or Click to Blow ✨</button>
-                    <p id="mic-status" class="status-text"></p>
                 </div>
             </div>
         </section>
@@ -246,9 +251,10 @@
                     <div class="surprise-content">
                         <p class="surprise-text">I tried to match it witch the photo , aggi timeline ma thyo ne joint
                             wala tyo snga hai, i hope it somehow matches 😅❤️</p>
-                        <p class="final-question">Ahamm..👀 a last thing la, would you like to receive a special
-                            surprise gift
-                            from me.. voli nei haina like in a few days kaile chai vandena that will also be suprise 🫶?
+                        <p class="final-question">Ahamm..👀 a last thing la, I would you like to give you a surprise
+                            gift
+                            hai.. like voli nei haina but in a few days kaile chai vandena that will also be suprise la
+                            🫶?
                         </p>
                     </div>
                     <div class="gift-actions">
