@@ -2,7 +2,7 @@
 // Paste your Webhook URL (Discord, Slack, or Formspree) below to get notified!
 const TRACKING_URL = "https://formspree.io/f/xvzvynqg";
 
-const TARGET_DATE = new Date('April 10, 2026 00:00:00').getTime();
+const TARGET_DATE = new Date('April 9, 2026 13:40:00').getTime();
 
 const timelineData = [
     {
@@ -55,7 +55,7 @@ function init() {
     if (proceedBtn) {
         proceedBtn.addEventListener('click', () => {
             clearTimeout(transitionTimeout);
-            showTimeline();
+            showCake();
         });
     }
 
@@ -217,14 +217,18 @@ function startCelebration() {
         }
 
         startFallingPetals();
-        setTimeout(showCake, 7000);
+        setTimeout(showLetter, 7000);
     }, 1500);
 }
 
 function showCake() {
     if (flowerSection) flowerSection.style.opacity = '0';
+    if (letterSection) letterSection.style.opacity = '0';
+
     setTimeout(() => {
         if (flowerSection) flowerSection.style.display = 'none';
+        if (letterSection) letterSection.style.display = 'none';
+
         if (cakeSection) {
             cakeSection.style.display = 'flex';
             setTimeout(() => {
@@ -343,10 +347,16 @@ function blowOutCandles() {
 }
 
 function showLetter() {
-    if (letterSection) {
-        letterSection.classList.add('active');
-        transitionTimeout = setTimeout(showTimeline, 25000);
-    }
+    if (flowerSection) flowerSection.style.opacity = '0';
+
+    setTimeout(() => {
+        if (flowerSection) flowerSection.style.display = 'none';
+        if (letterSection) {
+            letterSection.classList.add('active');
+            // Auto-advance after 30 seconds if they don't click
+            transitionTimeout = setTimeout(showCake, 30000);
+        }
+    }, 1500);
 }
 
 function startFallingPetals() {

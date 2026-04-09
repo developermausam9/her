@@ -408,18 +408,26 @@ section.active {
 .letter-paper {
     background: #fdfaf0;
     padding: clamp(1.5rem, 5vw, 3rem);
-    border-radius: 4px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    border-radius: 8px;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.4);
     color: #444;
     font-family: 'Playfair Display', serif;
     position: relative;
-    transform: rotateX(10deg);
-    animation: unfoldLetter 1.2s ease-out forwards;
+    transform-origin: center top;
+    animation: unfoldLetter 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes unfoldLetter {
-    from { transform: rotateX(90deg); opacity: 0; }
-    to { transform: rotateX(0deg); opacity: 1; }
+    0% { 
+        transform: rotateX(-90deg); 
+        opacity: 0;
+        filter: blur(10px);
+    }
+    100% { 
+        transform: rotateX(0deg); 
+        opacity: 1;
+        filter: blur(0);
+    }
 }
 
 .letter-title {
